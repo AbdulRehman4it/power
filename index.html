@@ -1,11 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+<link rel="manifest" href="./favicon/site.webmanifest">
+<link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/1f4b816a3f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              secondary: "#313131",
+              para: "#717171",
+              primary: "#72E549",
+            },
+          },
+          boxShadow: {
+            "3xl": "0px -10px 50px 0px #00000026",
+            "4xl": "0px 20px 100px 0px #00000066",
+          },
+        },
+      };
+    </script>
+    <title>Power</title>
+  </head>
+  <body class="bg-white">
+    <div id="loader" class="flex justify-center items-center bg-[#FCFCFA] h-screen 2xl:h-auto">
+      <img src="./assets/img/video.gif" class="h-auto md:h-screen" alt="">
+      <!-- <video id="loaderVideo"  autoplay muted>
+        <source src="./assets/img/video.mp4" type="video/mp4" />
+        <source src="./assets/img/video.mp4" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video> -->
+      <!-- <video id="myVideo" class="h-screen" autoplay muted>
+        <source src="./assets/img/video.mp4" type="video/mp4" />
+        <source src="./assets/img/video.mp4" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video> -->
+    </div>
+    <!------- Navbar Code Start  ------->
+    <!-- <div id="nextSection"> -->
+    <div id="content" >
+      <!-- mobile Nav Start -->
+      <nav class="navbar block lg:hidden relative z-10 lg:px-[7%]">
+        <header class="navbar-header">
+          <!-- <img src="./assets/img/logo.svg" class="w-[30%]" alt="" /> -->
+          <a href="">
+            <svg width="89" height="24" viewBox="0 0 89 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.78858 0.291016C10.2916 0.291016 13.0884 3.01642 13.0884 6.67701C13.0884 10.3376 10.2916 13.063 6.78858 13.063C3.8223 13.063 1.90128 11.4598 1.08202 9.58944V18.0328H0.291016V0.531492H1.05377L1.08202 3.71113C1.90128 1.84075 3.8223 0.291016 6.78858 0.291016ZM6.70383 12.3416C9.69836 12.3416 12.2409 9.9368 12.2409 6.67701C12.2409 3.41721 9.69836 1.01244 6.70383 1.01244C3.3703 1.01244 1.08202 3.39049 1.08202 6.67701C1.08202 9.96352 3.3703 12.3416 6.70383 12.3416Z" fill="#717171"/>
+              <path d="M25.7263 13.0882C22.167 13.0882 19.1962 10.2895 19.1962 6.55784C19.1962 2.79874 22.167 0 25.7263 0C29.2856 0 32.2844 2.79874 32.2844 6.55784C32.2844 10.2895 29.2856 13.0882 25.7263 13.0882ZM25.7263 12.3474C28.7531 12.3474 31.4436 9.87792 31.4436 6.55784C31.4436 3.21032 28.7531 0.740844 25.7263 0.740844C22.6995 0.740844 20.0089 3.21032 20.0089 6.55784C20.0089 9.87792 22.6995 12.3474 25.7263 12.3474Z" fill="#717171"/>
+              <path d="M55.8842 0.531013H56.7157L52.156 12.7976H51.4586L47.3817 1.51767L43.3584 12.7976H42.661L38.1013 0.531013H38.9596L43.0365 11.6242L47.033 0.291016H47.8108L51.8609 11.5976L55.8842 0.531013Z" fill="#717171"/>
+              <path d="M74.7484 5.83646C74.7484 6.31837 74.7193 6.5861 74.7193 6.5861H63.0562C63.1435 9.82561 65.732 12.1013 69.1931 12.1013C71.1418 12.1013 72.4506 11.5123 73.585 10.6556L74.0503 11.2446C72.8578 12.1013 71.4036 12.7974 69.135 12.7974C65.0921 12.7974 62.2418 10.1469 62.2418 6.39869C62.2418 2.7576 64.8595 0 68.815 0C72.218 0 74.7484 2.32923 74.7484 5.83646ZM68.815 0.696092C65.5866 0.696092 63.2889 2.89146 63.0853 5.91678H73.9049V5.78292C73.9049 2.6505 71.6653 0.696092 68.815 0.696092Z" fill="#717171"/>
+              <path d="M87.9941 0C88.3903 0 88.7256 0.0272862 89 0.0818594L88.9085 0.845882C88.6037 0.791309 88.2989 0.764023 87.9026 0.764023C84.3667 0.764023 82.9341 3.49268 82.9036 5.37545V12.7974H82.0196V0.245579H82.7816L82.8426 3.35624C83.3303 1.63719 85.0373 0 87.9941 0Z" fill="#717171"/>
+              <line y1="23.2677" x2="11.9248" y2="23.2677" stroke="#717171" stroke-width="0.581699"/>
+              </svg>
+              
+          </a>
+          <button class="navbar-burger">
+            <svg class="-mt-1" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="0.7" rx="0.35" fill="#717171"/>
+              <rect y="5.5" width="20" height="0.7" rx="0.35" fill="#717171"/>
+              <rect y="11" width="20" height="0.7" rx="0.35" fill="#717171"/>
+              </svg>
+              
+          </button>
+        </header>
+        <ul
+          class="navbar-list pt-4 text-lg text-secondary lg:flex lg:justify-between md:pt-0 text-center justify-center gap-3 trenda-r"
+        >
+          <li class="navbar-item mt-5">
+            <a class="navbar-link block active-link" href="">AI</a>
+          </li>
+          <li class="navbar-item">
+            <a
+              class="navbar-link md:p-4 py-2 block hover:text-purple-400"
+              href=""
+              >Data</a
+            >
+          </li>
+          <li class="navbar-item">
+            <a
+              class="navbar-link md:p-4 py-2 block hover:text-purple-400"
+              href=""
+              >Discover</a
+            >
+          </li>
+          <li class="navbar-item">
+            <a
+              class="navbar-link md:p-4 py-2 block hover:text-purple-400"
+              href=""
+              >EI</a
+            >
+          </li>
+          <!-- <li class="navbar-item">
+            <a
+              class="navbar-link md:p-4 py-2 block hover:text-purple-400"
+              href=""
+              >Pre Order</a
+            >
+          </li> -->
+          <li class="navbar-item">
+            <a
+              class="navbar-link md:p-4 py-2 block hover:text-purple-400"
+              href=""
+              >Rewards</a
+            >
+          </li>
+          <li class="navbar-item">
+            <div class="flex justify-center">
+              <a href="" class="bg-primary rounded-[14px] px-8 py-2">
+                <p class="text-sm text-white trenda-semi uppercase">
+                  Get Updates
+                </p>
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- <ul class="navbar-list">
+      <li class="navbar-item"><a href="#" class="navbar-link">About</a></li>
+      <li class="navbar-item"><a href="#" class="navbar-link">Contact</a></li>
+      <li class="navbar-item"><a href="#" class="navbar-link">Work</a></li>
+    </ul> -->
+      </nav>
+
+      <!-- mobile Nav End -->
+
+      <div class="px-[6%] mt-8">
+        <nav
+          class="hidden sticky top-0 lg:flex flex-wrap items-center justify-between w-full py-4 md:py-0 lg:py-4 text-lg text-black lg:relative nav-bg"
+        >
+          <!-- <div class=" absolute top-4 w-[90%] h-24 -z-10">
+    
+    </div> -->
+
+          <a href="#" class="">
+            <!-- <img src="./assets/img/logo.svg" alt="" /> -->
+            <svg class="w-[168px] xl:w-[118px] xl:w-[168px] h-[45px] xl:h-[32px] 2xl:h-[45px]" viewBox="0 0 168 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7788 0.547852C19.373 0.547852 24.6377 5.67822 24.6377 12.569C24.6377 19.4598 19.373 24.5902 12.7788 24.5902C7.19499 24.5902 3.57882 21.5723 2.03662 18.0515V33.9455H0.547607V1.00053H1.98344L2.03662 6.98596C3.57882 3.46512 7.19499 0.547852 12.7788 0.547852ZM12.6193 23.2321C18.2562 23.2321 23.0424 18.7053 23.0424 12.569C23.0424 6.43268 18.2562 1.90589 12.6193 1.90589C6.34413 1.90589 2.03662 6.38239 2.03662 12.569C2.03662 18.7556 6.34413 23.2321 12.6193 23.2321Z" fill="#717171"/>
+              <path d="M48.4277 24.6376C41.7275 24.6376 36.1353 19.3692 36.1353 12.3446C36.1353 5.26842 41.7275 0 48.4277 0C55.1279 0 60.7729 5.26842 60.7729 12.3446C60.7729 19.3692 55.1279 24.6376 48.4277 24.6376ZM48.4277 23.2431C54.1255 23.2431 59.1902 18.5944 59.1902 12.3446C59.1902 6.04319 54.1255 1.39458 48.4277 1.39458C42.7299 1.39458 37.6652 6.04319 37.6652 12.3446C37.6652 18.5944 42.7299 23.2431 48.4277 23.2431Z" fill="#717171"/>
+              <path d="M105.198 0.999629H106.763L98.1798 24.0905H96.867L89.1925 2.85694L81.619 24.0905H80.3062L71.7229 0.999629H73.3386L81.0131 21.8818L88.5361 0.547852H90.0003L97.6244 21.8316L105.198 0.999629Z" fill="#717171"/>
+              <path d="M140.708 10.9867C140.708 11.8939 140.654 12.3978 140.654 12.3978H118.699C118.863 18.496 123.736 22.7798 130.251 22.7798C133.919 22.7798 136.383 21.671 138.518 20.0583L139.394 21.1671C137.15 22.7798 134.412 24.0901 130.141 24.0901C122.531 24.0901 117.166 19.1007 117.166 12.0451C117.166 5.19097 122.093 0 129.539 0C135.945 0 140.708 4.3846 140.708 10.9867ZM129.539 1.31034C123.462 1.31034 119.137 5.44296 118.753 11.1379H139.121V10.8859C139.121 4.98938 134.905 1.31034 129.539 1.31034Z" fill="#717171"/>
+              <path d="M165.642 0C166.388 0 167.019 0.0513642 167.536 0.154094L167.364 1.59231C166.79 1.48958 166.216 1.43822 165.47 1.43822C158.814 1.43822 156.117 6.5747 156.06 10.1189V24.0901H154.396V0.462284H155.83L155.945 6.31788C156.863 3.08189 160.076 0 165.642 0Z" fill="#717171"/>
+              <line y1="43.8004" x2="22.4476" y2="43.8004" stroke="#717171" stroke-width="1.09501"/>
+              </svg>
+              
+          </a>
+          <div
+            class="hidden w-full md:flex md:items-center justify-center md:w-auto"
+            id="menu"
+          >
+            <ul
+              class="pt-4 text-lg text-secondary md:flex md:items-center md:justify-between md:pt-0 text-center justify-center gap-20 xl:gap-16 2xl:gap-20 trenda-r"
+            >
+              <li>
+                <a class="block active-link" href="#">AI</a>
+              </li>
+              <li>
+                <a class="block" href="">Data</a>
+              </li>
+              <li>
+                <a class="block" href="">Discover</a>
+              </li>
+              <li>
+                <a class="block" href="">EI</a>
+              </li>
+              <!-- <li>
+                <a class="block" href="">Pre Order</a>
+              </li> -->
+              <li>
+                <a class="block" href="">Rewards</a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="hidden w-full md:flex justify-center mt-5 md:mt-0 items-center md:w-auto"
+            id="menu1"
+          >
+            <div class="flex justify-center">
+              <a href="" class="bg-primary rounded-[30px] px-10 py-3 2xl:px-12 2xl:py-4">
+                <p class="text-base 2xl:text-lg text-white trenda-semi uppercase">
+                  Get Updates
+                </p>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!------- Navbar Code End  ------->
+
+      <!------- Hero Section Code Start  ------->
+      <section class="pt-20 xl:pt-10 2xl:pt-20 -mt-[470px] md:-mt-[500px] lg:-mt-0">
+        <div>
+          <h1
+            class="trenda-l text-[47px] lg:text-[70px] 2xl:text-[100px] text-secondary uppercase md:text-center px-[5%] mt-1"
+          >
+            Embrace <span class="text-primary">energy intellegence</span>
+          </h1>
+          <div class="relative">
+            <div class="flex justify-center">
+              <img src="./assets/img/hero.png" class="rounded-[20px] hidden md:block" alt="" />
+              <img src="./assets/img/mbl-hero.png" class="block md:hidden shadow-4xl rounded-[22px] mt-8" alt="" />
+            </div>
+            
+            <div class="flex justify-center">
+              <div
+                class="w-[90%] lg:w-[70%] 2xl:w-[55%] px-3 lg:px-10 pt-3 lg:pt-10 pb-3 lg:pb-10 bg-glass rounded-[14px] lg:rounded-[30px] absolute bottom-[-40px] md:bottom-[0px] lg:bottom-[0px] 2xl:bottom-[0px]"
+              >
+                <div
+                  class="flex justify-between items-center md:gap-10 lg:gap-24"
+                >
+                  <div class="text-center">
+                    <h3
+                      class="text-[16px] md:text-[18px] lg:text-[36px] text-primary"
+                    >
+                      <span class="trenda-b">9</span>%
+                    </h3>
+                    <span></span>
+                    <p
+                      class="text-[10px] md:text-[14px] lg:text-[24px] text-white uppercase sofia-m"
+                    >
+                      Ave consumption reduction
+                    </p>
+                  </div>
+                  <div class="text-center">
+                    <h3
+                      class="text-[16px] md:text-[18px] lg:text-[36px] trenda-b text-primary uppercase"
+                    >
+                      1,261kg
+                    </h3>
+                    <p
+                      class="text-[10px] md:text-[14px] lg:text-[24px] text-white uppercase sofia-m"
+                    >
+                      Ave annual CO2 reduction
+                    </p>
+                  </div>
+                  <div class="text-center">
+                    <h3
+                      class="text-[16px] md:text-[18px] lg:text-[36px] text-primary"
+                    >
+                      <span class="trenda-b">25</span>%
+                    </h3>
+                    <p
+                      class="text-[10px] md:text-[14px] lg:text-[24px] text-white uppercase sofia-m"
+                    >
+                      peak consumption reduction
+                    </p>
+                  </div>
+                </div>
+                <!-- <p
+                  class="text-center text-primary trenda-semi text-[8px] uppercase mt-2 lg:mt-7"
+                >
+                  statistics updated monthly
+                </p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!------- Hero Section Code End  ------->
+      <!------- Video Section Code Start  ------->
+      <!-- <section class="mt-20 lg:mt-0">
+        <img src="./assets/img/video.png" alt="" />
+      </section> -->
+      <!------- Video Section Code End  ------->
+      <!------ Graph Section Code Start  ------>
+      <section class="px-5 lg:px-[5%] my-52">
+        <div class="flex flex-col-reverse lg:flex-row items-center justify-center">
+          <div class="basis-3/5">
+            <img src="./assets/img/graph.png" class="mt-8 lg:mt-0 w-auto xl:w-[90%] 2xl:w-auto" alt="">
+          </div>
+          <div class="basis-2/5">
+            <p class="sofia-l text-center lg:text-left text-[16px] lg:text-[28px] 2xl:text-[36px] leading-[44px] lg:leading-[65px] 2xl:leading-[78px] text-para">Our intuitive tools empower you to take charge of your home’s <span class="text-secondary"> energy use, turning efficiency into savings. Say goodbye to wasted energy</span> and hello to a smarter, sustainable life. </p>
+          </div>
+        </div>
+      </section>
+      <!------ Graph Section Code End  ------>
+      <!------ Mobile Screen Section Code Start  ------>
+      <section class="text-center px-5 lg:px-0">
+        <h2 class="text-secondary trenda-semi text-[22px] lg:text-[36px] text-center">Intervention</h2>
+        <p class="text-para sofia-l text-[16px] lg:text-[28px] 2xl:text-[36px] leading-[44px] lg:leading-[65px] 2xl:leading-[78px] text-center lg:w-[70%] 2xl:w-[65%] mx-auto mt-4 mb-5 lg:mt-5 lg:mb-20">Explore the hidden intricacies of your electricity usage and uncover unique trends within your household. Identify distinctive patterns and opportunities to save costs while reducing your carbon footprint.</p>
+        <img src="./assets/img/mbl-dark.png" class="mx-auto mbl-light w-[100%] md:w-[40%] xl:w-[30%] 2xl:w-[25%]" alt="">
+        <!-- <img src="./assets/img/mbl-light1.png" class="mx-auto mbl-light block lg:!hidden" alt=""> -->
+        <img src="./assets/img/mbl-light.png" class="mx-auto mbl-dark w-[100%] md:w-[40%] xl:w-[30%] 2xl:w-[25%]" alt="">
+        <!-- <img src="./assets/img/mbl-dark1.png" class="mx-auto mbl-dark block lg:!hidden" alt=""> -->
+
+        <div class="flex justify-center mt-8  mb-16 lg:mt-20 lg:mb-32">
+          <input type="checkbox" class="checkbox" id="checkbox">
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div>
+
+      </section>
+      <!------ Mobile Screen Section Code End  ------>
+
+
+      <!------- Fotter Section Code Start  ------->
+      <section class="bg-white shadow-3xl py-5 lg:py-10 relative z-10">
+        <div>
+          <ul
+            class="px-7 2xl:px-0 hidden md:flex items-center justify-between 2xl:justify-center gap-0 lg:gap-12 text-xl sofia-m text-para" uppercase
+          >
+            <li>Power © 2024</li>
+            <li><a href="">Contact</a></li>
+            <!-- <li><a href="https://www.ventures.green/" target="_blank">Green Ventures</a></li> -->
+            <li><a href="">Investors</a></li>
+            <li><a href="">Partners</a></li>
+            <li><a href="">Privacy & Legals</a></li>
+          </ul>
+          <ul
+          class="flex px-5 md:hidden items-center justify-between text-[8px] sofia-m text-para uppercase"
+        >
+          <li><a href="">Contact</a></li>
+          <!-- <li><a href="https://www.ventures.green/" target="_blank">Green Ventures</a></li> -->
+          <li><a href="">Investors</a></li>
+          <li><a href="">Partners</a></li>
+          <li><a href="">Privacy & Legals</a></li>
+        </ul>
+        <p  class="block md:hidden text-center text-[8px] trenda-semi text-para mt-5">Power © 2024</p>
+        </div>
+      </section>
+      <!------- Fotter Section Code End  ------->
+    </div>
+
+    <script>
+      // var video = document.getElementById("myVideo");
+
+      // video.onended = function () {
+      //   document
+      //     .getElementById("nextSection")
+      //     .scrollIntoView({ behavior: "smooth" });
+      // };
+//   // Function to hide the loader and show the content smoothly
+// document.getElementById('loaderVideo').addEventListener('ended', function() {
+//   const loader = document.getElementById('loader');
+//   const content = document.getElementById('content');
+
+//   // Add fade-out class to the loader
+//   loader.classList.add('fade-out');
+
+//   // Wait for the fade-out transition to complete
+//   loader.addEventListener('transitionend', function() {
+//     // Hide the loader after fade-out
+//     loader.style.display = 'none';
+
+//     // Add fade-in class to the content
+//     content.classList.add('fade-in');
+//   }, { once: true });
+// });
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+
+  setTimeout(function() {
+    loader.style.display = "none";
+    content.classList.add("loaded");
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+  }, 9000); // 9000 milliseconds = 9 seconds
+});
+    </script>
+
+    <script>
+      const button = document.querySelector("#menu-button");
+      const menu = document.querySelector("#menu");
+      const menu1 = document.querySelector("#menu1");
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu1.classList.toggle("hidden");
+      });
+    </script>
+    <script>
+      const burger = document.querySelector(".navbar-burger");
+      const navbar = document.querySelector(".navbar");
+
+      burger.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
+    </script>
+
+    <script>
+      const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})
+    </script>
+  </body>
 </html>
